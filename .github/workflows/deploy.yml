@@ -30,6 +30,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Create secret.key
+        run: echo "${{ secrets.ENCRYPTION_KEY }}" > secret.key
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
