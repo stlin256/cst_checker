@@ -37,7 +37,7 @@ h1 {
     margin: 0 0 10px;
 }
 
-p {
+.container > header > p {
     color: #6b7280;
     margin: 0 0 30px;
     font-size: 16px;
@@ -83,18 +83,40 @@ p {
     transform: scale(0.98);
 }
 
+/* ===== 最终的、统一的结果框样式 ===== */
+
 .result-box {
     margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    min-height: 54px;
-    padding: 16px;
+    padding: 25px 30px;
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden; /* 初始隐藏 */
+    text-align: left;
+    visibility: hidden;
     opacity: 0;
+    line-height: 1.8;
+    /* 强制使用块级布局，防止 flex/grid 捣乱 */
+    display: block; 
+}
+
+.result-box h3 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid; /* 在标题下加一条分隔线 */
+}
+
+.result-box p {
+    font-size: 15px;
+    margin: 0 0 12px;
+    color: inherit;
+}
+.result-box p:last-child {
+    margin-bottom: 0;
+}
+.result-box p strong {
+    font-weight: 700;
 }
 
 .result-box.visible {
@@ -102,36 +124,34 @@ p {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); visibility: visible; }
 }
 
+/* 颜色主题：只控制颜色，不控制布局 */
 .pass {
     background-color: #f0fdf4;
-    color: #166534;
     border: 1px solid #bbf7d0;
 }
+.pass h3 { color: #166534; border-color: #a7f3d0; }
+.pass p { color: #15803d; }
 
 .fail {
     background-color: #fff1f2;
-    color: #9f1239;
     border: 1px solid #ffdde0;
 }
+.fail h3 { color: #9f1239; border-color: #fecdd3; }
+.fail p { color: #be123c; }
 
 .not-found {
     background-color: #f8fafc;
-    color: #475569;
     border: 1px solid #e2e8f0;
+    text-align: center;
 }
+.not-found h3 { display: none; } /* 未找到时不需要大标题 */
+.not-found p { color: #475569; }
 
-/* ===== 新增的备注样式 ===== */
+/* ===== 页脚样式 ===== */
 .contact-info {
     text-align: center;
     margin-top: 30px;
@@ -141,7 +161,10 @@ p {
 
 footer {
     text-align: center;
-    margin-top: 20px; /* 从 40px 减小到 20px，让间距更协调 */
+    margin-top: 20px;
     color: #9ca3af;
     font-size: 14px;
+}
+footer p {
+    margin: 0;
 }
