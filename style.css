@@ -168,3 +168,19 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* --- 一面结果卡片颜色覆盖 --- */
+
+#result1.pass {
+    background-color: #eef7f0; /* Soft Green */
+    border: 1px solid #dce8dd;
+}
+#result1.pass h3 { color: #5a8a68; border-color: #dce8dd; }
+#result1.pass p { color: #6b9a78; }
+
+#result1.fail {
+    background-color: #fcf2f2; /* Soft Red */
+    border: 1px solid #f3e3e3;
+}
+#result1.fail h3 { color: #b96a6a; border-color: #f3e3e3; }
+#result1.fail p { color: #c38383; }
